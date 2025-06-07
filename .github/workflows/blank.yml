@@ -133,6 +133,7 @@ jobs:
            --enable-system \
            --enable-user \
            --enable-virglrenderer \
+           --enable-usb-redir
            --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
