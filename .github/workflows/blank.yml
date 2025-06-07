@@ -102,6 +102,7 @@ jobs:
           meson setup _build
           meson compile -C _build
           sudo meson install -C _build
+          mkdir lucas
           mkdir -p lucas/usr/
           mkdir -p lucas/usr/lib/
           mkdir -p lucas/usr/share/
