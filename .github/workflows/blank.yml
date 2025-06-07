@@ -102,6 +102,15 @@ jobs:
           meson setup _build
           meson compile -C _build
           sudo meson install -C _build
+          cd ${GITHUB_WORKSPACE}
+          #git clone https://gitlab.freedesktop.org/virgl/virglrenderer.git
+          #cd virglrenderer/
+          #meson build
+          #cd build
+          #sudo ninja install
+          #cd ${GITHUB_WORKSPACE}
+          mkdir lucas
+          mkdir -p lucas/usr/
           mkdir -p lucas/usr/lib/
           mkdir -p lucas/usr/share/
           cp -r /usr/share/mime/ lucas/usr/share/
@@ -133,6 +142,7 @@ jobs:
            --enable-system \
            --enable-user \
            --enable-virglrenderer \
+           --enable-usb-redir \
            --prefix=${GITHUB_WORKSPACE}/lucas/usr/
           make
           make install
