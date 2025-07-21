@@ -26,7 +26,6 @@ jobs:
 
       - name: Make AppImage
         run: |
-          echo $PATH
           sudo apt-get update && sudo apt-get upgrade -y
           sudo apt-get install desktop-file-utils \
            bison \
