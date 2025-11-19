@@ -26,7 +26,6 @@ jobs:
 
       - name: Make AppImage
         run: |
-          sudo apt-get update
           sudo apt-get install desktop-file-utils \
            bison \
            docutils-common \
@@ -35,6 +34,7 @@ jobs:
            git \
            #gnutls-bin \
            libaio-dev \
+           libaio1 \
            libbluetooth-dev \
            libbrlapi-dev \
            libbz2-dev \
