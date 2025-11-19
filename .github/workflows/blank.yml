@@ -104,7 +104,6 @@ jobs:
            libasound2-dev \
            libepoxy-dev \
            libiconv-hook-dev
-          export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
           wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd ./gnutls-3.7.11 && ./configure && make && sudo make install && cd ..
           pkg-config --modversion gnutls
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
