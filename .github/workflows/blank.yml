@@ -27,6 +27,10 @@ jobs:
       - name: Make AppImage
         run: |
           sudo apt-get update
+          sudo apt-get install -y software-properties-common
+          sudo add-apt-repository ppa:gnutls/ppa -y
+          sudo apt-get update
+          sudo apt-get install -y libgnutls28-dev gnutls-bin
           sudo apt-get install desktop-file-utils \
            bison \
            docutils-common \
@@ -90,8 +94,19 @@ jobs:
            virgl-server \
            xfslibs-dev \
            xsltproc \
-           zlib1g-dev
-          wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd gnutls-3.7.11/ && ./configure --prefix=/usr/lib && make && sudo make install && sudo ldconfig && cd ..
+           zlib1g-dev \
+           liburing-dev \
+           libcap-ng-dev \
+           libvdeplug-dev \
+           libbrlapi-dev \
+           librados-dev \
+           librbd-dev \
+           libbz2-dev \
+           liblzfse-dev \
+           libasound2-dev \
+           libepoxy-dev \
+           libiconv-hook-dev
+          #wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd gnutls-3.7.11/ && ./configure --prefix=/usr/lib && make && sudo make install && sudo ldconfig && cd ..
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/VHSgunzo/uruntime/releases/download/v0.3.9/uruntime-appimage-dwarfs-x86_64" -O uruntime ; chmod a+x uruntime
           sudo pip3 install meson
