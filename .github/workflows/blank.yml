@@ -99,7 +99,7 @@ jobs:
            librados-dev \
            librbd-dev \
            libbz2-dev \
-           liblzfse-dev \
+           liblz4-dev \
            libasound2-dev \
            libepoxy-dev \
            libiconv-hook-dev
