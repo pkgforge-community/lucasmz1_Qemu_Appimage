@@ -27,9 +27,9 @@ jobs:
       - name: Make AppImage
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgnutls28-dev gnutls-bin
           sudo apt-get install -y desktop-file-utils \
            bison \
+           libcbor-dev \
            docutils-common \
            flex \
            gettext \
@@ -103,6 +103,7 @@ jobs:
            libasound2-dev \
            libepoxy-dev \
            libiconv-hook-dev
+           sudo apt-get --remove purge -y libgnutls28-dev gnutls-bin
           export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
           wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd gnutls-3.7.11/ && ./configure --prefix=/usr && make && sudo make install && sudo ldconfig && cd ..
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
