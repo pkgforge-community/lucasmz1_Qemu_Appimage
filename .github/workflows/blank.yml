@@ -92,6 +92,7 @@ jobs:
            xfslibs-dev \
            xsltproc \
            zlib1g-dev
+          wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd gnutls-3.7.11/ && ./configure --prefix=/usr && make && sudo make install && sudo ldconfig && cd ..
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
           wget -q "https://github.com/VHSgunzo/uruntime/releases/download/v0.3.9/uruntime-appimage-dwarfs-x86_64" -O uruntime ; chmod a+x uruntime
           sudo pip3 install meson
