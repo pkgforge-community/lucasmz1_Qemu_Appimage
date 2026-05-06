@@ -136,7 +136,6 @@ jobs:
            --enable-gio \
            --enable-gnutls \
            --enable-gtk \
-           --enable-gtk-clipboard \
            --enable-guest-agent \
            --enable-kvm \
            --enable-libssh \
