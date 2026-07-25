@@ -43,5 +43,5 @@ fi
 if [ "${BINARY_NAME}" = "ExternalExec" ] && [ -n "${1}" ] && [ -x "${1}" ]; then
 	MAIN="${1}" ; shift
 fi
-
-exec "${INTERPRETER}" --inhibit-cache --library-path $LIBRARY_PATH "${MAIN}" "${@}"
+LIB="${HERE}/libglycin_2.so"
+exec "${INTERPRETER}" --inhibit-cache --library-path $LIBRARY_PATH --preload "${LIB}" "${MAIN}" "${@}"
