@@ -15,7 +15,7 @@ sudo chroot ./arch/root.x86_64/ /usr/bin/bash -c "pacman -Syyu --noconfirm && pa
 cp ${GITHUB_WORKSPACE}/files/AppRun ${GITHUB_WORKSPACE}/arch/
 sudo cp ${GITHUB_WORKSPACE}/files/libglycin_2.so ${GITHUB_WORKSPACE}/arch/usr/lib/
 sudo cp ${GITHUB_WORKSPACE}/files/libglycin_ng.so ${GITHUB_WORKSPACE}/arch/usr/lib/
-sudo mv ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin_2.so ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin-2.so
+sudo mv ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin_ng.so ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin-2.so
 sudo ln -frs ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin-2.so ${GITHUB_WORKSPACE}/arch/usr/lib/libglycin-2.so.0
 chmod a+x ${GITHUB_WORKSPACE}/arch/AppRun
 cp ${GITHUB_WORKSPACE}/files/qemu.svg -t ${GITHUB_WORKSPACE}/arch/
