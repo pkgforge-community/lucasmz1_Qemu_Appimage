@@ -14,7 +14,6 @@ export GSETTINGS_SCHEMA_DIR="${HERE}"/usr/share/glib-2.0/schemas/:"${GSETTINGS_S
 
 INTERPRETER="$HERE/root/usr/lib64/ld-linux-x86-64.so.2"
 
-# Allow the AppImage to be symlinked to e.g., /usr/bin/wineserver
 if [ -n "${APPIMAGE}" ] ; then
 	BINARY_NAME="$(basename "${ARGV0}")"
 else
@@ -43,5 +42,4 @@ fi
 if [ "${BINARY_NAME}" = "ExternalExec" ] && [ -n "${1}" ] && [ -x "${1}" ]; then
 	MAIN="${1}" ; shift
 fi
-LIB="${HERE}/libglycin_2.so"
-exec "${INTERPRETER}" --inhibit-cache --library-path $LIBRARY_PATH --preload "${LIB}" "${MAIN}" "${@}"
+exec "${INTERPRETER}" --inhibit-cache --library-path "${LIBRARY_PATH}" "${MAIN}" "${@}"
