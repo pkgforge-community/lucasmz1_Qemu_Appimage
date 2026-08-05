@@ -23,4 +23,7 @@ cp ${GITHUB_WORKSPACE}/files/qemu.desktop -t ${GITHUB_WORKSPACE}/arch/
 mv ${GITHUB_WORKSPACE}/arch/root.x86_64/ ${GITHUB_WORKSPACE}/arch/root/
 find ${GITHUB_WORKSPACE}/arch/root/usr/bin/ -type f -exec strip {} +
 find ${GITHUB_WORKSPACE}/arch/root/usr/lib/ -type f -exec strip {} \;
-ARCH=x86_64 ./appimagetool -n ./arch/
+REPO="Qemu-AppImage"
+TAG="Continuous universal"
+UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|$REPO|$TAG|*x86_64.AppImage.zsync"
+ARCH=x86_64 ./appimagetool -u "$UPINFO" ./arch/
