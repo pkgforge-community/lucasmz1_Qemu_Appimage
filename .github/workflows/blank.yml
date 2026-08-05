@@ -108,7 +108,8 @@ jobs:
           wget -q "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.11.tar.xz" && tar xf gnutls-3.7.11.tar.xz && cd ./gnutls-3.7.11 && ./configure && make && sudo make install && cd ..
           pkg-config --modversion gnutls
           wget -q "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage" -O linuxdeploy ; chmod a+x linuxdeploy
-          wget -q "https://github.com/VHSgunzo/uruntime/releases/download/v0.3.9/uruntime-appimage-dwarfs-x86_64" -O uruntime ; chmod a+x uruntime
+          ####wget -q "https://github.com/VHSgunzo/uruntime/releases/download/v0.3.9/uruntime-appimage-dwarfs-x86_64" -O uruntime ; chmod a+x uruntime
+          wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O appimagetool ; chmod a+x appimagetool
           sudo pip3 install meson
           wget -c -q "https://download.gnome.org/sources/glib/2.80/glib-2.80.2.tar.xz"
           tar -xf glib-2.80.2.tar.xz
@@ -170,8 +171,13 @@ jobs:
           find ${GITHUB_WORKSPACE}/lucas/usr/libexec/ -type f | xargs strip
           export ARCH=x86_64
           export VERSION=git
+          REPO="Qemu-AppImage"
+          TAG="continuous-stable-jammy"
+          UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|$REPO|$TAG|*x86_64.AppImage.zsync"
           cd ${GITHUB_WORKSPACE}
-          ./uruntime --appimage-mkdwarfs -f --set-owner 0 --set-group 0 --no-history --no-create-timestamp --compression zstd:level=22 -S26 -B8 --header uruntime -i ${GITHUB_WORKSPACE}/lucas/ -o QEMU-"$VERSION"-"$ARCH".AppImage 
+          ###./uruntime --appimage-mkdwarfs -f --set-owner 0 --set-group 0 --no-history --no-create-timestamp --compression zstd:level=22 -S26 -B8 --header uruntime -i ${GITHUB_WORKSPACE}/lucas/ -o QEMU-"$VERSION"-"$ARCH".AppImage
+          ./appimagetool -u "$UPINFO" ${GITHUB_WORKSPACE}/lucas/
+          
           mkdir dist
           mv *.AppImage* dist/
 
